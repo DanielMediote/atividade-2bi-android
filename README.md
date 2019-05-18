@@ -1,13 +1,11 @@
 # Projeto em Android de Farmacia Hospitalar
 
-[![Build Status]
+## Passo I - Iniciando o Projeto
 
-## Iniciando o Projeto
+ - Clonar o repositório remoto no seu computador - geralmente na pasta Documentos :
 
-
-
-### Clonar o repositório remoto no seu computador - geralmente na pasta Documentos :
-´´´sh
+```sh
 git clone https://github.com/DanielMediote/atividade-2bi-android.git
-´´´
+```
+
 
