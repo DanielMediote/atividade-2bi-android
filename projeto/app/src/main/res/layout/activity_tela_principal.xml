@@ -13,8 +13,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="8dp"
-        android:text="Bem Vindo"
-        android:textSize="30sp"
+        android:text="Bem Vindo, @usuario"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,44 +33,48 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center">
+            android:gravity="center"
+            android:padding="8dp">
 
             <Button
                 android:id="@+id/btn_medicos"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_margin="20dp"
-                android:text="Medicos" />
-
-            <Button
-                android:id="@+id/btn_pacientes"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_margin="20dp"
-                android:text="Pacientes" />
+                android:layout_width="300dp"
+                android:layout_height="80dp"
+                android:background="#8C9EFF"
+                android:drawableRight="@drawable/doctor"
+                android:fadingEdge="horizontal|vertical"
+                android:text="Medicos"
+                android:textAllCaps="false" />
 
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center">
+            android:gravity="center"
+            android:padding="8dp">
 
             <Button
                 android:id="@+id/btn_remedios"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_margin="20dp"
+                android:layout_width="300dp"
+                android:layout_height="80dp"
+                android:background="#8C9EFF"
                 android:text="Remedios" />
 
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:padding="8dp">
+
             <Button
-                android:id="@+id/btn_cadastrar"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_margin="20dp"
-                android:onClick="onClick"
-                android:text="Cadastrar" />
+                android:id="@+id/button2"
+                android:layout_width="300dp"
+                android:layout_height="80dp"
+                android:background="#8C9EFF"
+                android:text="Button" />
         </TableRow>
 
     </TableLayout>
