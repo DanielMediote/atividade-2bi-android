@@ -5,7 +5,7 @@
 Clonar o repositório remoto no seu computador - geralmente na pasta Documentos :
 
 ```sh
-git clone https://github.com/DanielMediote/atividade-2bi-android.git
+$ git clone https://github.com/DanielMediote/atividade-2bi-android.git
 ```
 
 
