@@ -21,22 +21,20 @@ $ git clone https://github.com/DanielMediote/atividade-2bi-android.git
 ```
 
 ### Salvando Alterações e Atualizando o repositório:
-  - 1. Apos fazer as alterações. Deve-se modificar o repositório local com o seguinte comando.
+1. Apos fazer as alterações. Deve-se modificar o repositório local com o seguinte comando.
   ```sh
   $ git add .
   ```
-  - 2. Em seguita dar um commit.
+2. Em seguita dar um commit.
   ```sh
   $ git commit -m "Minhas Alterações"
   ```
-  - 3. Atualizar o repositório remoto.
+3. Atualizar o repositório remoto.
   ```sh
   $ git push origin master
   ```
   
-## Importante.
-#### Antes de qualquer modificação, é sempre bom manter o repositório local atualizado, assim evita de quando dar um *push*, os arquivos entrarem em conflito.
-  - Baixando os arquivos do repositório:
+#### Antes de qualquer modificação, é sempre bom manter o repositório local atualizado, assim evita de quando dar um *push*, os arquivos entrarem em conflito. Ultilize o comando para manter o repositório atualizado.
 ```sh
 $ git pull origin master
 ```
