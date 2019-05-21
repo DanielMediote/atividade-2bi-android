@@ -28,7 +28,7 @@
 
         <Button
             android:id="@+id/btn_entrar"
-            style="@android:style/Widget.DeviceDefault.Button.Borderless.Colored"
+            style="@android:style/Widget.Material.Button.Small"
             android:layout_width="150dp"
             android:layout_height="60dp"
             android:layout_marginStart="130dp"
@@ -93,7 +93,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:checked="false"
             android:layoutDirection="rtl"
             android:text=" Lembrar Usuário"
             android:textColor="#000000"
@@ -101,7 +100,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edt_senha" />
+            app:layout_constraintTop_toBottomOf="@+id/edt_senha"
+            tools:checked="false" />
 
         <TextView
             android:id="@+id/textView8"

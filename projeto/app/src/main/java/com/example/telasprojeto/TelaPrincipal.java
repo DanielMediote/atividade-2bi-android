@@ -15,7 +15,7 @@ public class TelaPrincipal extends AppCompatActivity {
     }
 
     public void onClick(View v){
-        if (v.getId() == R.id.btn_cadastrar){
+        if (v.getId() == R.id.btn_cadastro){
             Intent it = new Intent(this, TelaCadastro.class);
             super.startActivity(it);
         }

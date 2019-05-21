@@ -39,9 +39,9 @@
 
             <Button
                 android:id="@+id/btn_listaMedicos"
-                android:layout_width="300dp"
+                style="@android:style/Widget.DeviceDefault.Button"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#8C9EFF"
                 android:drawableStart="@drawable/stethoscope"
                 android:padding="25dp"
                 android:paddingStart="25dp"
@@ -56,9 +56,9 @@
 
             <Button
                 android:id="@+id/btn_listaPaciente"
+                style="@android:style/Widget.DeviceDefault.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#8C9EFF"
                 android:drawableEnd="@drawable/patient"
                 android:padding="25dp"
                 android:paddingEnd="25dp"
@@ -74,10 +74,11 @@
 
             <Button
                 android:id="@+id/btn_cadastro"
+                style="@android:style/Widget.DeviceDefault.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#8C9EFF"
                 android:drawableStart="@drawable/medical_report"
+                android:onClick="onClick"
                 android:padding="25dp"
                 android:paddingStart="25dp"
                 android:text="Cadastro" />
