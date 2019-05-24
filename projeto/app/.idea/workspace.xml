@@ -10,13 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e3ec5b30-0960-4bba-b753-e4c1548d447a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/at-android-farmacia.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/at-android-farmacia.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/telasprojeto/TelaPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/telasprojeto/TelaPrincipal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_login.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_tela_cadastro.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_tela_cadastro.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_tela_principal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_tela_principal.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,30 +47,7 @@
     </system>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_tela_principal.xml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="1065">
-              <caret line="73" selection-start-line="73" selection-end-line="73" />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="android-designer2" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_tela_cadastro.xml">
-          <provider editor-type-id="text-editor" />
-          <provider selected="true" editor-type-id="android-designer2" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/res/layout-v21/activity_tela_cadastro.xml">
-          <provider editor-type-id="text-editor" />
-          <provider selected="true" editor-type-id="android-designer2" />
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -102,35 +78,15 @@
       <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane" />
-      <pane id="AndroidView">
-        <subPane>
-          <expand>
-            <path>
-              <item name="projeto" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-            </path>
-            <path>
-              <item name="projeto" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-            </path>
-            <path>
-              <item name="projeto" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="/opt/android-sdk" />
     <property name="device.picker.selection" value="330021ea2ab8336f" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -345,10 +301,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1366" height="732" extended-state="6" />
+    <frame x="-1" y="0" width="1368" height="726" extended-state="6" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" weight="0.14469697" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.14469697" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
@@ -356,6 +312,7 @@
       <window_info id="Designer" order="6" />
       <window_info id="Resources Explorer" order="7" />
       <window_info id="Capture Tool" order="8" />
+      <window_info anchor="bottom" id="Flutter Performance" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="0" sideWeight="0.49881983" weight="0.3294702" />
       <window_info anchor="bottom" id="Logcat" order="1" weight="0.3294702" />
       <window_info anchor="bottom" id="TODO" order="2" weight="0.3294702" />
@@ -363,15 +320,17 @@
       <window_info anchor="bottom" id="Terminal" order="4" weight="0.3294702" />
       <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.5011802" side_tool="true" weight="0.3294702" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.3294702" />
-      <window_info anchor="bottom" id="Build" order="7" weight="0.3250825" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.32332155" />
       <window_info anchor="bottom" id="Android Profiler" order="8" />
       <window_info anchor="bottom" id="Find" order="9" />
+      <window_info anchor="right" id="Flutter Inspector" />
+      <window_info anchor="right" id="Flutter Outline" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Gradle" order="2" weight="0.3296617" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
-      <window_info anchor="right" id="Preview" order="5" />
+      <window_info anchor="right" id="Preview" order="5" weight="0.32954547" />
       <window_info anchor="right" id="Coverage" order="6" side_tool="true" weight="0.3296617" />
     </layout>
   </component>
@@ -400,13 +359,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/res/drawable/patient.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file:///opt/android-sdk/sources/android-28/java/util/Optional.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-579">
-          <caret line="266" selection-start-line="266" selection-end-line="266" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file:///opt/android-sdk/sources/android-28/java/util/Optional.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/telasprojeto/TelaCadastro.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -441,20 +394,20 @@
       <provider selected="true" editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_tela_principal.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="1065">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1241">
           <caret line="73" selection-start-line="73" selection-end-line="73" />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_tela_cadastro.xml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/layout-v21/activity_tela_cadastro.xml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="android-designer2" />
     </entry>
   </component>
 </project>

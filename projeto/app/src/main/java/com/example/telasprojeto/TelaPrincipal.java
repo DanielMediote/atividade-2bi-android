@@ -13,11 +13,4 @@ public class TelaPrincipal extends AppCompatActivity {
         setContentView(R.layout.activity_tela_principal);
 
     }
-
-    public void onClick(View v){
-        if (v.getId() == R.id.btn_cadastro){
-            Intent it = new Intent(this, TelaCadastro.class);
-            super.startActivity(it);
-        }
-    }
 }

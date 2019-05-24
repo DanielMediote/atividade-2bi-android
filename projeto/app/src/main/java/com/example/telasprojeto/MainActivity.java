@@ -11,11 +11,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_main);
     }
 
     public void onClick(View v){
-        if (v.getId() == R.id.btn_entrar){
+        if (v.getId() == R.id.btnEntrar){
             Intent it = new Intent(this, TelaPrincipal.class);
             super.startActivity(it);
         }

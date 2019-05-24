@@ -41,6 +41,7 @@
     <property name="android.sdk.path" value="/opt/android-sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/projeto/app" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">

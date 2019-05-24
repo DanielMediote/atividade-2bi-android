@@ -2,8 +2,8 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context=".TelaPrincipal">
 
     <TextView
@@ -13,8 +13,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="8dp"
-        android:text="Bem Vindo, @usuario"
-        android:textSize="24sp"
+        android:text="Bem Vindo"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,55 +33,57 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:padding="8dp"
-            tools:visibility="visible">
+            android:gravity="center">
 
             <Button
-                android:id="@+id/btn_listaMedicos"
-                style="@android:style/Widget.DeviceDefault.Button"
+                android:id="@+id/btnDoutor"
+                style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/stethoscope"
-                android:padding="25dp"
-                android:paddingStart="25dp"
-                android:text="Lista de Medicos" />
+                android:layout_height="162dp"
+                android:drawingCacheQuality="auto"
+                android:foreground="@drawable/doctor"
+                android:foregroundGravity="center_vertical|center_horizontal"
+                android:paddingStart="5dp"
+                android:shadowColor="#FFFFFF"
+                android:textColor="#6200EA"
+                android:textColorHighlight="#673AB7"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/button2"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="175dp"
+                android:layout_height="175dp"
+                android:text="Pacientes"
+                android:textColor="#000"
+                android:textSize="18sp" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:padding="8dp">
+            android:gravity="center">
 
             <Button
-                android:id="@+id/btn_listaPaciente"
-                style="@android:style/Widget.DeviceDefault.Button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableEnd="@drawable/patient"
-                android:padding="25dp"
-                android:paddingEnd="25dp"
-                android:text="Lista de Pacientes" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:padding="8dp">
+                android:id="@+id/button4"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="175dp"
+                android:layout_height="175dp"
+                android:text="Remedios"
+                android:textColor="#000"
+                android:textColorHighlight="#000"
+                android:textSize="18sp" />
 
             <Button
-                android:id="@+id/btn_cadastro"
-                style="@android:style/Widget.DeviceDefault.Button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/medical_report"
-                android:onClick="onClick"
-                android:padding="25dp"
-                android:paddingStart="25dp"
-                android:text="Cadastro" />
+                android:id="@+id/btn_atendimento"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="175dp"
+                android:layout_height="175dp"
+                android:text="Atendimento"
+                android:textColor="#000"
+                android:textColorHighlight="#000"
+                android:textSize="18sp" />
         </TableRow>
 
     </TableLayout>
