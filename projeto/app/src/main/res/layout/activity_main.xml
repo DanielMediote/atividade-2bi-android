@@ -42,7 +42,7 @@
 
     <EditText
         android:id="@+id/edt_usuario"
-        style="@style/Widget.AppCompat.AutoCompleteTextView"
+        style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense"
         android:layout_width="348dp"
         android:layout_height="46dp"
         android:layout_marginStart="8dp"
@@ -51,6 +51,7 @@
         android:fontFamily="@font/suez_one"
         android:gravity="center"
         android:inputType="textPersonName"
+        android:maxLength="20"
         android:shadowRadius="500"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
@@ -63,6 +64,7 @@
 
     <EditText
         android:id="@+id/edt_senha"
+        style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense"
         android:layout_width="348dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
@@ -71,6 +73,8 @@
         android:fontFamily="@font/rubik_mono_one"
         android:gravity="center"
         android:inputType="textPassword"
+        android:maxLength="15"
+        android:minLines="5"
         android:password="true"
         android:shadowRadius="500"
         android:textSize="24sp"
@@ -81,27 +85,31 @@
 
     <Switch
         android:id="@+id/lembrar_usuario"
+        style="?attr/switchStyle"
         android:layout_width="162dp"
         android:layout_height="64dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="Lembrar Usuário "
         android:textColor="#000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.201"
+        app:layout_constraintHorizontal_bias="0.098"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edt_senha" />
 
     <Button
         android:id="@+id/btnEntrar"
-        style="@android:style/Widget.Material.Button.Colored"
-        android:layout_width="128dp"
-        android:layout_height="61dp"
+        style="@android:style/Widget.DeviceDefault.Button"
+        android:layout_width="134dp"
+        android:layout_height="68dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="Roboto"
+        android:shadowColor="#00555050"
+        android:shadowDx="100"
+        android:shadowDy="100"
         android:shadowRadius="500"
         android:text="Entrar"
         android:textSize="24sp"
@@ -142,4 +150,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/icon_launcher" />
+
 </android.support.constraint.ConstraintLayout>
