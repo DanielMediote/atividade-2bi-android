@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Farmacia Hospitalar</string>
+    <string name="undo_medicos">Médicos</string>
+    <string name="undo_remedios">Remédios</string>
+    <string name="undo_pacientes">Pacientes</string>
+    <string name="undo_atendimento">Atendimento</string>
 </resources>

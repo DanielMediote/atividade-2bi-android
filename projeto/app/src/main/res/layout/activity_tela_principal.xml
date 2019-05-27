@@ -6,86 +6,113 @@
     android:layout_height="match_parent"
     tools:context=".TelaPrincipal">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
+    <Button
+        android:id="@+id/btnAtendimento"
+        style="@style/Widget.MaterialComponents.Button.UnelevatedButton.Icon"
+        android:layout_width="133dp"
+        android:layout_height="137dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginBottom="8dp"
+        android:focusable="auto"
+        android:foreground="@drawable/peoplephone"
+        android:foregroundGravity="fill"
+        android:freezesText="false"
+        android:onClick="onClick"
+        android:scrollbarDefaultDelayBeforeFade="@android:integer/config_shortAnimTime"
+        android:scrollHorizontally="false"
+        android:shadowColor="#00FFFFFF"
+        android:shadowDx="1000"
+        android:shadowRadius="1000"
+        android:soundEffectsEnabled="false"
+        app:backgroundTint="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRemedios"
+        app:layout_constraintVertical_bias="0.054" />
+
+    <Button
+        android:id="@+id/btnPacientes"
+        style="@style/Widget.MaterialComponents.Button.UnelevatedButton.Icon"
+        android:layout_width="133dp"
+        android:layout_height="137dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="52dp"
         android:layout_marginEnd="8dp"
-        android:text="Bem Vindo"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        android:layout_marginBottom="8dp"
+        android:focusable="auto"
+        android:foreground="@drawable/pacient"
+        android:foregroundGravity="fill"
+        android:freezesText="false"
+        android:onClick="onClick"
+        android:scrollbarDefaultDelayBeforeFade="@android:integer/config_shortAnimTime"
+        android:scrollHorizontally="false"
+        android:shadowColor="#00FFFFFF"
+        android:shadowDx="1000"
+        android:shadowRadius="1000"
+        android:soundEffectsEnabled="false"
+        app:backgroundTint="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnAtendimento"
+        app:layout_constraintHorizontal_bias="0.03"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/btnMedico"
+        app:layout_constraintVertical_bias="0.054" />
 
-    <TableLayout
-        android:layout_width="398dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="7dp"
+    <Button
+        android:id="@+id/btnRemedios"
+        style="@style/Widget.MaterialComponents.Button.UnelevatedButton.Icon"
+        android:layout_width="133dp"
+        android:layout_height="137dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:focusable="auto"
+        android:foreground="@drawable/medicine"
+        android:foregroundGravity="fill"
+        android:freezesText="false"
+        android:onClick="onClick"
+        android:scrollbarDefaultDelayBeforeFade="@android:integer/config_shortAnimTime"
+        android:scrollHorizontally="false"
+        android:shadowColor="#00FFFFFF"
+        android:shadowDx="1000"
+        android:shadowRadius="1000"
+        android:soundEffectsEnabled="false"
+        app:backgroundTint="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.832"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.283" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center">
-
-            <Button
-                android:id="@+id/btnDoutor"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="wrap_content"
-                android:layout_height="162dp"
-                android:drawingCacheQuality="auto"
-                android:foreground="@drawable/doctor"
-                android:foregroundGravity="center_vertical|center_horizontal"
-                android:paddingStart="5dp"
-                android:shadowColor="#FFFFFF"
-                android:textColor="#6200EA"
-                android:textColorHighlight="#673AB7"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/button2"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="175dp"
-                android:layout_height="175dp"
-                android:text="Pacientes"
-                android:textColor="#000"
-                android:textSize="18sp" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center">
-
-            <Button
-                android:id="@+id/button4"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="175dp"
-                android:layout_height="175dp"
-                android:text="Remedios"
-                android:textColor="#000"
-                android:textColorHighlight="#000"
-                android:textSize="18sp" />
-
-            <Button
-                android:id="@+id/btn_atendimento"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="175dp"
-                android:layout_height="175dp"
-                android:text="Atendimento"
-                android:textColor="#000"
-                android:textColorHighlight="#000"
-                android:textSize="18sp" />
-        </TableRow>
-
-    </TableLayout>
+    <Button
+        android:id="@+id/btnMedico"
+        style="@style/Widget.MaterialComponents.Button.UnelevatedButton.Icon"
+        android:layout_width="133dp"
+        android:layout_height="137dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:focusable="auto"
+        android:foreground="@drawable/doctor"
+        android:foregroundGravity="fill"
+        android:freezesText="false"
+        android:onClick="onClick"
+        android:scrollbarDefaultDelayBeforeFade="@android:integer/config_shortAnimTime"
+        android:scrollHorizontally="false"
+        android:shadowColor="#00FFFFFF"
+        android:shadowDx="1000"
+        android:shadowRadius="1000"
+        android:soundEffectsEnabled="false"
+        app:backgroundTint="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnRemedios"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.283" />
 
 </android.support.constraint.ConstraintLayout>

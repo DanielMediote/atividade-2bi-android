@@ -14,10 +14,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-//    public void onClick(View v){
-//        if (v.getId() == R.id.btnEntrar){
-//            Intent it = new Intent(this, TelaPrincipal.class);
-//            super.startActivity(it);
-//        }
-//    }
+    public void onClick(View v){
+        if (v.getId() == R.id.btnEntrar){
+            Intent it = new Intent(this, TelaPrincipal.class);
+            super.startActivity(it);
+        }
+    }
 }
