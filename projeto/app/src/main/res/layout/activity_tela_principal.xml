@@ -15,7 +15,7 @@
         android:layout_marginEnd="56dp"
         android:layout_marginBottom="8dp"
         android:focusable="auto"
-        android:foreground="@drawable/peoplephone"
+        android:foreground="@drawable/atendimento"
         android:foregroundGravity="fill"
         android:freezesText="false"
         android:onClick="onClick"

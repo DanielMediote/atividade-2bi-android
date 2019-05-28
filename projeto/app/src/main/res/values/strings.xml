@@ -4,4 +4,5 @@
     <string name="undo_remedios">Remédios</string>
     <string name="undo_pacientes">Pacientes</string>
     <string name="undo_atendimento">Atendimento</string>
+    <string name="title_activity_main2">Main2Activity</string>
 </resources>
