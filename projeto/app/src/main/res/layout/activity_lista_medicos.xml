@@ -30,7 +30,7 @@
         app:backgroundTint="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:maxImageSize="120px"
+        app:maxImageSize="100px"
         app:srcCompat="@drawable/plus"
         app:useCompatPadding="false" />
 </android.support.constraint.ConstraintLayout>
