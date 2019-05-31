@@ -110,7 +110,6 @@
         android:onClick="onClick"
         android:shadowColor="#FFFFFF"
         android:shadowDx="800"
-        android:shadowRadius="1000"
         android:text="Entrar"
         android:textSize="24sp"
         android:textStyle="bold"
