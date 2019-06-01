@@ -26,7 +26,6 @@
             <Button
                 android:id="@+id/btnMedico"
                 style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableTop="@drawable/doctor"
                 android:drawablePadding="15dp"
@@ -58,7 +57,7 @@
                 android:drawableTop="@drawable/medical_recipe"
                 android:drawablePadding="15dp"
                 android:padding="15dp"
-                android:text="Receitas" />
+                android:text="@string/receitas" />
 
             <Button
                 android:id="@+id/btnAtendimento"
@@ -68,7 +67,7 @@
                 android:drawableTop="@drawable/nurse"
                 android:drawablePadding="15dp"
                 android:padding="15dp"
-                android:text="@string/undo_atendimento" />
+                android:text="@string/atendimento" />
         </TableRow>
 
     </TableLayout>

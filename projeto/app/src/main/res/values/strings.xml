@@ -1,3 +1,4 @@
+
 <resources>
     <string name="app_name">Farmacia Hospitalar</string>
     <string name="undo_medicos">Médicos</string>
@@ -5,4 +6,6 @@
     <string name="undo_pacientes">Pacientes</string>
     <string name="undo_atendimento">Atendimento</string>
     <string name="title_activity_main2">Main2Activity</string>
+    <string name="receitas">Receitas</string>
+    <string name="atendimento">Atendimento</string>
 </resources>
