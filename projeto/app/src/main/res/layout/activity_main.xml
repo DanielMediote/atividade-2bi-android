@@ -42,7 +42,7 @@
 
     <EditText
         android:id="@+id/edt_usuario"
-        style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense"
+        style="@style/Widget.AppCompat.AutoCompleteTextView"
         android:layout_width="348dp"
         android:layout_height="46dp"
         android:layout_marginStart="8dp"
@@ -64,7 +64,7 @@
 
     <EditText
         android:id="@+id/edt_senha"
-        style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense"
+        style="@style/Widget.AppCompat.AutoCompleteTextView"
         android:layout_width="348dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
@@ -91,33 +91,38 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="Lembrar senha"
+        android:layout_marginBottom="8dp"
+        android:text="Lembrar Usuário "
         android:textColor="#000"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.098"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_senha" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_senha"
+        app:layout_constraintVertical_bias="0.021" />
 
     <Button
         android:id="@+id/btnEntrar"
-        style="@android:style/Widget.DeviceDefault.Button"
+        style="@android:style/Widget.Material.Button"
         android:layout_width="134dp"
         android:layout_height="68dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:fontFamily="Roboto"
         android:onClick="onClick"
-        android:shadowColor="#FFFFFF"
-        android:shadowDx="800"
         android:text="Entrar"
+        android:textColor="#fff"
         android:textSize="24sp"
         android:textStyle="bold"
         app:backgroundTint="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.931"
+        app:layout_constraintHorizontal_bias="0.908"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_senha" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_senha"
+        app:layout_constraintVertical_bias="0.021" />
 
     <TextView
         android:id="@+id/textView8"
@@ -149,7 +154,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/icon_launcher"
-        tools:visibility="visible" />
+        app:srcCompat="@drawable/icon_launcher" />
 
 </android.support.constraint.ConstraintLayout>
