@@ -13,8 +13,6 @@ import android.widget.Toast;
 public class TelaPrincipal extends AppCompatActivity implements View.OnClickListener{
     Button btnMedico, btnRemedios, btnPacientes, btnAtendimento;
 
-
-    
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -22,7 +20,7 @@ public class TelaPrincipal extends AppCompatActivity implements View.OnClickList
 
         btnMedico = super.findViewById(R.id.btnMedico);
         btnRemedios = super.findViewById(R.id.btnRemedios);
-        btnPacientes = super.findViewById(R.id.btnPacientes);
+        btnPacientes = super.findViewById(R.id.btnAtendimento);
         btnAtendimento = super.findViewById(R.id.btnAtendimento);
     }
 
@@ -33,7 +31,7 @@ public class TelaPrincipal extends AppCompatActivity implements View.OnClickList
             startActivity(it);
         }else if(v.getId() == R.id.btnRemedios){
 
-        }else if(v.getId() == R.id.btnPacientes){
+        }else if(v.getId() == R.id.btnAtendimento){
             
         }else{
 
@@ -57,6 +55,4 @@ public class TelaPrincipal extends AppCompatActivity implements View.OnClickList
         }
         return super.onOptionsItemSelected(item);
     }
-
-
 }
