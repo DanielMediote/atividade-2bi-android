@@ -8,6 +8,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Switch;
 import android.widget.Toast;
 
 public class TelaPrincipal extends AppCompatActivity implements View.OnClickListener{
@@ -26,16 +27,17 @@ public class TelaPrincipal extends AppCompatActivity implements View.OnClickList
 
     //EVENTO ONCLICK PARA OS BOTÕES DA TELA PRINCIPAL
     public void onClick(View v){
+        Intent it;
         if(v.getId() == R.id.btnMedico){
-            Intent it = new Intent(this, ListaMedicos.class);
-            startActivity(it);
+            it = new Intent(this, ListaMedicos.class);
         }else if(v.getId() == R.id.btnRemedios){
-
+            it = new Intent(this, ListaRemedios.class);
         }else if(v.getId() == R.id.btnAtendimento){
-            
+            it = new Intent(this, TelaAtendimento.class);
         }else{
-
+            it = new Intent(this, ListaPacientes.class);
         }
+        startActivity(it);
     }
 
 

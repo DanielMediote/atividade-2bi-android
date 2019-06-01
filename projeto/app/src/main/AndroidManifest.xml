@@ -9,7 +9,9 @@
         android:roundIcon="@drawable/icon_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApp">
-        <activity android:name=".ListaPacientes"></activity>
+        <activity android:name=".TelaAtendimento"></activity>
+        <activity android:name=".ListaRemedios" />
+        <activity android:name=".ListaPacientes" />
         <activity
             android:name=".Main2Activity"
             android:label="@string/title_activity_main2"

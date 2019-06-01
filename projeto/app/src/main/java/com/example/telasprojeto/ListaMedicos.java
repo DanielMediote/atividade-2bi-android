@@ -15,7 +15,7 @@ public class ListaMedicos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_medicos);
 
-        btnAddMedicos = findViewById(R.id.fbtnAdd_medicos);
+        btnAddMedicos = findViewById(R.id.btnAdd_medicos);
     }
 
     public void onClick(View v) {
