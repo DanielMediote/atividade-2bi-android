@@ -14,6 +14,7 @@ import android.widget.Toast;
 public class TelaPrincipal extends AppCompatActivity implements View.OnClickListener{
 
 
+
     Button btnMedico, btnRemedios, btnPacientes, btnAtendimento;
 
     @Override
