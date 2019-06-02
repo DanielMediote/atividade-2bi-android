@@ -109,7 +109,7 @@ public class DB extends SQLiteOpenHelper {
     private static String createScriptTableRemedioTipo(){
         StringBuilder sb = new StringBuilder();
         sb.append(" CREATE TABLE remediotipo(                       ");
-        sb.append("     remt_id INTEGER PRIMARY KEY AUTOINCREMENT,  ");
+        sb.append("     remt_id INTEGER PRIMARY KEY,  ");
         sb.append("     remt_ativo INTEGER,                         ");
         sb.append("     remt_descricao TEXT                         ");
         sb.append(" );                                               ");

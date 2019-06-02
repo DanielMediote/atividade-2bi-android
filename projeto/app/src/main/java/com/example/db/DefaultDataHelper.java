@@ -6,7 +6,9 @@ import com.example.constants.ConditionDB;
 import com.example.model.beans.Bean;
 import com.example.model.beans.PessoaBean;
 import com.example.model.beans.PessoaTipoBean;
+import com.example.model.beans.RemedioTipoBean;
 import com.example.model.dd.PesTpDD;
+import com.example.model.dd.RemTpDD;
 
 import java.util.List;
 
@@ -25,8 +27,10 @@ public class DefaultDataHelper {
     private void start(){
         dbHelp = new DBHelper(context);
 
-        dbHelp.deleteAll(PessoaTipoBean.class);
+//        dbHelp.deleteAll(PessoaTipoBean.class);
         addPesTipo();
+        addRemTipo();
+
         if (temGerente() == false){
             addGerente();
         }
@@ -58,6 +62,18 @@ public class DefaultDataHelper {
         for (PessoaTipoBean pestpBean : PesTpDD.getList()) {
             dbHelp.insert(pestpBean);
         }
+    }
+
+    private void addRemTipo(){
+        List<RemedioTipoBean> list = (List<RemedioTipoBean>) dbHelp.select(RemedioTipoBean.class);
+
+        if (list.size() > 0){
+            dbHelp.deleteAll(RemedioTipoBean.class);
+        }
+        for (RemedioTipoBean remtpBean : RemTpDD.getList()) {
+            dbHelp.insert(remtpBean);
+        }
+
     }
 
 

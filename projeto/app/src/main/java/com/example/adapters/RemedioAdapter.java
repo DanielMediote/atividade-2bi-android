@@ -10,16 +10,17 @@ import android.widget.TextView;
 import com.example.db.DBHelper;
 import com.example.model.beans.MedicoBean;
 import com.example.model.beans.PessoaBean;
+import com.example.model.beans.RemedioBean;
 import com.example.telasprojeto.R;
 
 import java.util.List;
 
-public class MedicoAdapter extends BaseAdapter {
+public class RemedioAdapter extends BaseAdapter {
 
-    private final List<MedicoBean> list;
+    private final List<RemedioBean> list;
     private Context context;
 
-    public MedicoAdapter(List<MedicoBean> list, Context context){
+    public RemedioAdapter(List<RemedioBean> list, Context context){
         this.list = list;
         this.context = context;
     }
@@ -44,13 +45,13 @@ public class MedicoAdapter extends BaseAdapter {
         Activity act = (Activity) context;
         DBHelper DBhelp = new DBHelper(context);
 
-        PessoaBean pesBean = (PessoaBean) DBhelp.selectById(PessoaBean.class, ((MedicoBean) getItem(position)).getPessoa());
+        RemedioBean remBean = (RemedioBean) DBhelp.selectById(RemedioBean.class, new Long(getItemId(position)).intValue());
 
         View view = act.getLayoutInflater()
                 .inflate(R.layout.lis_view_layout, parent, false);
 
         TextView text = view.findViewById(R.id.descricao);
-        text.setText(pesBean.getDescricao());
+        text.setText(remBean.getDescricao());
         return view;
     }
 }
