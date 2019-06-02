@@ -49,25 +49,31 @@ public class DBHelper extends DB {
             sb.append(" FROM ");
             sb.append(table.name());
 
+            Cursor cursor;
             if (where != null){
                 sb.append(" WHERE ");
 
                 temp = "";
+                String[] args = new String[where.getItems().size()];
+                int i = 0;
                 for (String key : where.getItems().keySet()){
                     Field field = clazz.getDeclaredField(key);
                     Column column = field.getAnnotation(Column.class);
 
                     sb.append(temp);
-                    sb.append(column.name());
-                    sb.append(where.getItems().get(key));
+                    sb.append(column.name()+" ");
+                    sb.append(where.getItems().get(key).getCondition().value);
+                    sb.append(" ? ");
 
-                    temp = " AND ";
+                    args[i] = where.getItems().get(key).getValue().toString();
+
+                    temp = "AND ";
+                    i++;
                 }
-
+                cursor = db.rawQuery(sb.toString(), args);
+            } else {
+                cursor = db.rawQuery(sb.toString(), null);
             }
-
-            Cursor cursor;
-            cursor = db.rawQuery(sb.toString(), null);
 
             if (cursor.getCount() > 0) {
                 cursor.moveToFirst();
@@ -92,7 +98,6 @@ public class DBHelper extends DB {
 
         }catch (Exception e){
             Log.e("SELECT", "erro ao efetuar o select");
-        } finally {
         }
 
         return result;

@@ -3,6 +3,7 @@ package com.example.db;
 import android.content.Context;
 import android.widget.Toast;
 
+import com.example.constants.ConditionDB;
 import com.example.model.beans.Bean;
 import com.example.model.beans.PessoaBean;
 import com.example.model.beans.PessoaTipoBean;
@@ -36,7 +37,7 @@ public class DefaultDataHelper {
 
     private boolean temGerente(){
         Where where = new Where();
-        where.add("pessoaTipo", Condition.EQUALS, PesTpDD.GERENTE);
+        where.add("pessoaTipo", ConditionDB.EQUALS, PesTpDD.GERENTE);
 
         List<Bean> list = dbHelp.select(PessoaBean.class, where);
 
