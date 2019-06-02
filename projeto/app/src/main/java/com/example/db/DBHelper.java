@@ -1,5 +1,6 @@
 package com.example.db;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -35,6 +36,8 @@ public class DBHelper extends DB {
 
             String temp = "";
             for (Field field : clazz.getDeclaredFields()) {
+                if (field.isAnnotationPresent(Column.class) == false) continue;
+
                 Column column = field.getAnnotation(Column.class);
                 sb.append(temp);
                 sb.append(column.name());
@@ -51,13 +54,11 @@ public class DBHelper extends DB {
 
                 temp = "";
                 for (String key : where.getItems().keySet()){
-                    Field field = clazz.getField(key);
+                    Field field = clazz.getDeclaredField(key);
                     Column column = field.getAnnotation(Column.class);
 
                     sb.append(temp);
-                    sb.append("lower(");
                     sb.append(column.name());
-                    sb.append(")");
                     sb.append(where.getItems().get(key));
 
                     temp = " AND ";
@@ -75,10 +76,12 @@ public class DBHelper extends DB {
 
                     for (String columnName : cursor.getColumnNames()) {
                         for (Field field : clazz.getDeclaredFields()) {
+                            if (field.isAnnotationPresent(Column.class) == false) continue;
+
                             Column column = field.getAnnotation(Column.class);
                             if (column.name().equals(columnName)) {
                                 field.setAccessible(true);
-                                setValue(field, cursor, cursor.getColumnIndex(columnName));
+                                setValue(bean, field, cursor, cursor.getColumnIndex(columnName));
                                 field.setAccessible(false);
                             }
                         }
@@ -89,16 +92,58 @@ public class DBHelper extends DB {
 
         }catch (Exception e){
             Log.e("SELECT", "erro ao efetuar o select");
+        } finally {
         }
 
         return result;
     }
 
-    private static void setValue(Field field, Cursor cursor, Integer index) throws IllegalAccessException {
+    public void insert(Bean bean) {
+        try {
+            Table table = bean.getClass().getAnnotation(Table.class);
+
+            ContentValues values = new ContentValues();
+            Class<? extends Bean> clazz = bean.getClass();
+            for (Field field : clazz.getDeclaredFields()) {
+                if (field.isAnnotationPresent(Column.class) == false) continue;
+
+                field.setAccessible(true);
+                Object obj = field.get(bean);
+                field.setAccessible(false);
+
+
+                Column column = field.getAnnotation(Column.class);
+
+                if (field.getType().equals(Integer.class)) {
+                    values.put(column.name(), (Integer) obj);
+                } else if (field.getType().equals(String.class)) {
+                    values.put(column.name(), (String) obj);
+                }
+            }
+            db.insertOrThrow(table.name(), null, values);
+        } catch (Exception e){
+            Log.e("INSERT", "erro ao efetuar o insert");
+        }
+    }
+
+
+    public void deleteAll(Class<? extends Bean> clazz){
+        Table table = clazz.getAnnotation(Table.class);
+        StringBuilder sb = new StringBuilder();
+        sb.append(" DELETE FROM ");
+        sb.append(table.name());
+
+        db.execSQL(sb.toString());
+    }
+
+
+
+
+    private static void setValue(Object obj, Field field, Cursor cursor, Integer index) throws IllegalAccessException {
         if (field.getType().equals(Integer.class)) {
-            field.set(null, cursor.getInt(index));
+            field.set(obj, cursor.getInt(index));
         } else if (field.getType().equals(String.class)) {
-            field.set(null, cursor.getString(index));
+            field.set(obj, cursor.getString(index));
         }
     }
 

@@ -3,6 +3,10 @@ package com.example.model.beans;
 import com.example.annotations.Column;
 import com.example.annotations.Table;
 
+import java.lang.reflect.Field;
+import java.util.HashMap;
+import java.util.Map;
+
 @Table(name = "pessoa")
 public class PessoaBean extends Bean {
 
@@ -18,14 +22,14 @@ public class PessoaBean extends Bean {
     @Column(name = "pes_senha", field = "senha")
     private String senha;
 
-    @Column(name = "pestp_id", field = "pessoaTipo.id")
-    private PessoaTipoBean pessoaTipo;
+    @Column(name = "pestp_id", field = "pessoaTipo")
+    private Integer pessoaTipo;
 
     public PessoaBean() {
         super();
     }
 
-    public PessoaBean(Integer id, String descricao, String login, String senha, PessoaTipoBean pessoaTipo) {
+    public PessoaBean(Integer id, String descricao, String login, String senha, Integer pessoaTipo) {
         super();
         this.id = id;
         this.descricao = descricao;
@@ -66,11 +70,12 @@ public class PessoaBean extends Bean {
         this.senha = senha;
     }
 
-    public PessoaTipoBean getPessoaTipo() {
+    public Integer getPessoaTipo() {
         return pessoaTipo;
     }
 
-    public void setPessoaTipo(PessoaTipoBean pessoaTipo) {
+    public void setPessoaTipo(Integer pessoaTipo) {
         this.pessoaTipo = pessoaTipo;
     }
+
 }

@@ -1,17 +1,24 @@
 package com.example.model.dd;
 
+import com.example.model.beans.Bean;
 import com.example.model.beans.PessoaTipoBean;
 import com.example.constants.Sit;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PesTpDD extends AbstracDD {
-    public PesTpDD(){
+
+    private static List<PessoaTipoBean> list = new ArrayList<>();
+
+
+    public PesTpDD() {
         super();
     }
 
-
-    public static Integer GERENTE  = 1;
-    public static Integer MEDICO   = 1;
-    public static Integer PACIENTE = 1;
+    public static Integer GERENTE = 1;
+    public static Integer MEDICO = 2;
+    public static Integer PACIENTE = 3;
 
 
     static {
@@ -20,4 +27,11 @@ public class PesTpDD extends AbstracDD {
         add(new PessoaTipoBean(PACIENTE, Sit.ATIVO, "Paciente"));
     }
 
+
+    protected static void add(PessoaTipoBean obj) {
+        list.add(obj);
+    }
+    public static List<PessoaTipoBean> getList() {
+        return list;
+    }
 }

@@ -11,13 +11,26 @@ public class DB extends SQLiteOpenHelper {
 
 
     public DB(Context context){
+
         super(context, DB_NAME, null, DB_VERSION);
     }
 
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(createScriptCreateTables());
+//        db.execSQL(createScriptCreateTables());
+
+        db.execSQL(createScriptTablePessoaTipo());
+        db.execSQL(createScriptTablePessoa());
+        db.execSQL(createScriptTableMedico());
+        db.execSQL(createScriptTableRemedioTipo());
+        db.execSQL(createScriptTablePaciente());
+        db.execSQL(createScriptTableRemedio());
+        db.execSQL(createScriptTableReceita());
+        db.execSQL(createScriptTableReceitaRemedio());
+
+//        db.endTransaction();
+
     }
 
 
@@ -72,7 +85,7 @@ public class DB extends SQLiteOpenHelper {
         StringBuilder sb = new StringBuilder();
         sb.append(" CREATE TABLE medico(                                ");
         sb.append("     med_id INTEGER PRIMARY KEY AUTOINCREMENT,       ");
-        sb.append("     med_crm TEXT                                    ");
+        sb.append("     med_crm TEXT,                                    ");
         sb.append("     pes_id INTEGER,                                 ");
         sb.append("     FOREIGN KEY (pes_id) REFERENCES pessoa(pes_id)  ");
         sb.append(" );                                                   ");
@@ -123,8 +136,8 @@ public class DB extends SQLiteOpenHelper {
         sb.append("     rec_id  INTEGER PRIMARY KEY AUTOINCREMENT,       ");
         sb.append("     med_id INTEGER,                                  ");
         sb.append("     pac_id INTEGER,                                  ");
-        sb.append("     rec_observacao TEXT                              ");
-        sb.append("     FOREIGN KEY (med_id) REFERENCES medico(med_id)   ");
+        sb.append("     rec_observacao TEXT,                              ");
+        sb.append("     FOREIGN KEY (med_id) REFERENCES medico(med_id),   ");
         sb.append("     FOREIGN KEY (pac_id) REFERENCES paciente(pac_id) ");
         sb.append(" );                                                    ");
 

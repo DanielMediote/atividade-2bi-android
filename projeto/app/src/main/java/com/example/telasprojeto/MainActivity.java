@@ -16,13 +16,13 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        DBHelper dbHelp;
-        try {
-            dbHelp = new DBHelper(this);
-        } catch (SQLiteException e){
-            Toast.makeText(this, "Falha na conexão!", Toast.LENGTH_SHORT).show();
-            e.printStackTrace();
-        }
+//        DBHelper dbHelp;
+//        try {
+//            dbHelp = new DBHelper(this);
+//        } catch (SQLiteException e){
+//            Toast.makeText(this, "Falha na conexão!", Toast.LENGTH_SHORT).show();
+//            e.printStackTrace();
+//        }
 
 
     }
