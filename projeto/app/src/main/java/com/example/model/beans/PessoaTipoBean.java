@@ -1,12 +1,14 @@
 package com.example.model.beans;
 
 import com.example.annotations.Column;
+import com.example.annotations.PrimaryKey;
 import com.example.annotations.Table;
 import com.example.constants.Sit;
 
 @Table(name = "pessoatipo")
 public class PessoaTipoBean extends Bean {
 
+    @PrimaryKey
     @Column(name = "pestp_id", field = "id")
     private Integer id;
 

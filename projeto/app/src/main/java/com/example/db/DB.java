@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DB extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "farmacia";
-    private static final Integer DB_VERSION = 1;
+    private static final Integer DB_VERSION = 2;
 
 
     public DB(Context context){
@@ -74,6 +74,7 @@ public class DB extends SQLiteOpenHelper {
         sb.append("     pes_descricao TEXT,                                     ");
         sb.append("     pes_login TEXT,                                         ");
         sb.append("     pes_senha TEXT,                                         ");
+        sb.append("     pes_dataultimologin TEXT,                               ");
         sb.append("     pestp_id INTEGER,                                       ");
         sb.append("     FOREIGN KEY (pestp_id) REFERENCES pessoatipo(pestp_id)  ");
         sb.append(" );                                                          ");

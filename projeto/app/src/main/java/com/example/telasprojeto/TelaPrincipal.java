@@ -1,6 +1,8 @@
 package com.example.telasprojeto;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,6 +12,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Switch;
 import android.widget.Toast;
+
+import com.example.db.DBHelper;
+import com.example.model.beans.PessoaBean;
 
 public class TelaPrincipal extends AppCompatActivity implements View.OnClickListener{
     Button btnMedico, btnRemedios, btnPacientes, btnAtendimento;
@@ -23,6 +28,21 @@ public class TelaPrincipal extends AppCompatActivity implements View.OnClickList
         btnRemedios = super.findViewById(R.id.btnRemedios);
         btnPacientes = super.findViewById(R.id.btnAtendimento);
         btnAtendimento = super.findViewById(R.id.btnAtendimento);
+
+        DBHelper dbHelp = new DBHelper(this);
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        Integer idUser = sp.getInt("idUserLogado", -1);
+
+        if (idUser != -1) {
+            PessoaBean pesBean = (PessoaBean) dbHelp.selectById(PessoaBean.class, idUser);
+
+//            Toast.makeText(this, "O nome da pessoa logada é: "+pesBean.getDescricao(), Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(this, "Usuário não está logado", Toast.LENGTH_LONG).show();
+            super.finish();
+        }
+
+
     }
 
     //EVENTO ONCLICK PARA OS BOTÕES DA TELA PRINCIPAL

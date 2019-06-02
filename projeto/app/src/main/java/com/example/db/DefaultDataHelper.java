@@ -1,7 +1,6 @@
 package com.example.db;
 
 import android.content.Context;
-import android.widget.Toast;
 
 import com.example.constants.ConditionDB;
 import com.example.model.beans.Bean;
@@ -23,7 +22,6 @@ public class DefaultDataHelper {
         start();
     }
 
-
     private void start(){
         dbHelp = new DBHelper(context);
 
@@ -39,13 +37,11 @@ public class DefaultDataHelper {
         Where where = new Where();
         where.add("pessoaTipo", ConditionDB.EQUALS, PesTpDD.GERENTE);
 
-        List<Bean> list = dbHelp.select(PessoaBean.class, where);
+        List<PessoaBean> list = (List<PessoaBean>) dbHelp.select(PessoaBean.class, where);
 
         if (list.size() > 0){
-//            Toast.makeText(context, "TEM GERENTE CADASTRADO", Toast.LENGTH_LONG).show();
             return true;
         }
-//        Toast.makeText(context, "NÃO TEM GERENTE CADASTRADO", Toast.LENGTH_LONG).show();
 
         return false;
     }
@@ -53,7 +49,7 @@ public class DefaultDataHelper {
 
     private void addPesTipo(){
 
-        List<Bean> list =  dbHelp.select(PessoaTipoBean.class);
+        List<PessoaTipoBean> list = (List<PessoaTipoBean>) dbHelp.select(PessoaTipoBean.class);
 
         if (list.size() > 0){
             dbHelp.deleteAll(PessoaTipoBean.class);
