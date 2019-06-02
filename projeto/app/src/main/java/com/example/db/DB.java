@@ -29,6 +29,7 @@ public class DB extends SQLiteOpenHelper {
 
     private static String createScriptCreateTables(){
         StringBuilder sb = new StringBuilder();
+        sb.append(createScriptTablePessoaTipo());
         sb.append(createScriptTablePessoa());
         sb.append(createScriptTableMedico());
         sb.append(createScriptTableRemedioTipo());
@@ -41,14 +42,28 @@ public class DB extends SQLiteOpenHelper {
     }
 
 
+    private static String createScriptTablePessoaTipo(){
+        StringBuilder sb = new StringBuilder();
+        sb.append(" CREATE TABLE pessoatipo(            ");
+        sb.append("     pestp_id INTEGER PRIMARY KEY,   ");
+        sb.append("     pestp_ativo INTEGER,            ");
+        sb.append("     pestp_descricao TEXT            ");
+        sb.append(" );                                  ");
+
+
+        return sb.toString();
+    }
+
     private static String createScriptTablePessoa(){
         StringBuilder sb = new StringBuilder();
-        sb.append(" CREATE TABLE pessoa(                            ");
-        sb.append("     pes_id INTEGER PRIMARY KEY AUTOINCREMENT,   ");
-        sb.append("     pes_descricao TEXT,                         ");
-        sb.append("     pes_login TEXT,                             ");
-        sb.append("     pes_senha                                   ");
-        sb.append(" );                                               ");
+        sb.append(" CREATE TABLE pessoa(                                        ");
+        sb.append("     pes_id INTEGER PRIMARY KEY AUTOINCREMENT,               ");
+        sb.append("     pes_descricao TEXT,                                     ");
+        sb.append("     pes_login TEXT,                                         ");
+        sb.append("     pes_senha TEXT,                                         ");
+        sb.append("     pestp_id INTEGER,                                       ");
+        sb.append("     FOREIGN KEY (pestp_id) REFERENCES pessoatipo(pestp_id)  ");
+        sb.append(" );                                                          ");
 
         return sb.toString();
     }

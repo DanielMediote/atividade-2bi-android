@@ -5,6 +5,8 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.example.db.DefaultDataHelper;
+
 public class SplashScreen extends AppCompatActivity{
 
 
@@ -13,6 +15,10 @@ public class SplashScreen extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
+
+        DefaultDataHelper db = new DefaultDataHelper(this);
+
+
         Handler handler = new Handler();
         handler.postDelayed(new Runnable(){
             @Override
