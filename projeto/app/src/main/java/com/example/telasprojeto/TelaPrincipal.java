@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.db.DBHelper;
 import com.example.model.beans.PessoaBean;
+import com.example.model.dd.PesTpDD;
 
 public class TelaPrincipal extends AppCompatActivity implements View.OnClickListener{
     Button btnMedico, btnRemedios, btnPacientes, btnAtendimento;
@@ -36,7 +37,23 @@ public class TelaPrincipal extends AppCompatActivity implements View.OnClickList
         if (idUser != -1) {
             PessoaBean pesBean = (PessoaBean) dbHelp.selectById(PessoaBean.class, idUser);
 
-//            Toast.makeText(this, "O nome da pessoa logada é: "+pesBean.getDescricao(), Toast.LENGTH_LONG).show();
+            if (pesBean.getPessoaTipo().equals(PesTpDD.GERENTE)) {
+                btnMedico.setVisibility(View.VISIBLE);
+                btnRemedios.setVisibility(View.VISIBLE);
+                btnPacientes.setVisibility(View.VISIBLE);
+                btnAtendimento.setVisibility(View.VISIBLE);
+            } else if (pesBean.getPessoaTipo().equals(PesTpDD.MEDICO)) {
+                btnMedico.setVisibility(View.INVISIBLE);
+                btnRemedios.setVisibility(View.INVISIBLE);
+                btnPacientes.setVisibility(View.VISIBLE);
+                btnAtendimento.setVisibility(View.VISIBLE);
+            } else if (pesBean.getPessoaTipo().equals(PesTpDD.PACIENTE)){
+                btnMedico.setVisibility(View.VISIBLE);
+                btnRemedios.setVisibility(View.VISIBLE);
+                btnPacientes.setVisibility(View.VISIBLE);
+                btnAtendimento.setVisibility(View.VISIBLE);
+            }
+
         } else {
             Toast.makeText(this, "Usuário não está logado", Toast.LENGTH_LONG).show();
             super.finish();

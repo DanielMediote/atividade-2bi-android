@@ -11,6 +11,7 @@ import com.example.annotations.PrimaryKey;
 import com.example.annotations.Table;
 import com.example.constants.ConditionDB;
 import com.example.model.beans.Bean;
+import com.example.model.beans.PessoaBean;
 
 import java.lang.reflect.Field;
 import java.text.ParseException;
@@ -110,7 +111,7 @@ public class DBHelper extends DB {
         return result;
     }
 
-    public void insert(Bean bean) {
+    public Object insert(Bean bean) {
         try {
             Table table = bean.getClass().getAnnotation(Table.class);
 
@@ -134,10 +135,13 @@ public class DBHelper extends DB {
                     if (obj != null) values.put(column.name(), new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format((Date) obj));
                 }
             }
-            db.insertOrThrow(table.name(), null, values);
+            Integer ultimoId = new Long(db.insertOrThrow(table.name(), null, values)).intValue();
+            return selectById(clazz, ultimoId);
+
         } catch (Exception e){
             Log.e("INSERT", "erro ao efetuar o insert");
             e.printStackTrace();
+            return null;
         }
     }
 
