@@ -1,19 +1,14 @@
 package com.example.model.beans;
 
 import com.example.annotations.Column;
-import com.example.annotations.PrimaryKey;
 import com.example.annotations.Table;
 
-import java.lang.reflect.Field;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 @Table(name = "pessoa")
 public class PessoaBean extends Bean {
 
-    @PrimaryKey
-    @Column(name = "pes_id", field = "id")
+    @Column(name = "pes_id", field = "id", pk = true)
     private Integer id;
 
     @Column(name = "pes_descricao", field = "descricao")

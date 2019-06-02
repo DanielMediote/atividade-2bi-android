@@ -7,11 +7,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.example.annotations.Column;
-import com.example.annotations.PrimaryKey;
 import com.example.annotations.Table;
 import com.example.constants.ConditionDB;
 import com.example.model.beans.Bean;
-import com.example.model.beans.PessoaBean;
 
 import java.lang.reflect.Field;
 import java.text.ParseException;
@@ -60,7 +58,7 @@ public class DBHelper extends DB {
                 sb.append(" WHERE ");
 
                 temp = "";
-                String[] args = new String[where.getItems().size()];
+                List<String> listArgs = new ArrayList<>();
                 int i = 0;
                 for (String key : where.getItems().keySet()){
                     Field field = clazz.getDeclaredField(key);
@@ -69,14 +67,21 @@ public class DBHelper extends DB {
                     sb.append(temp);
                     sb.append(column.name()+" ");
                     sb.append(where.getItems().get(key).getCondition().value);
-                    sb.append(" ? ");
-
-                    args[i] = where.getItems().get(key).getValue().toString();
+                    if (where.getItems().get(key).getCondition().equals(ConditionDB.IN)) {
+                        sb.append(where.getItems().get(key).getValue().toString());
+                    } else {
+                        sb.append(" ? ");
+                        listArgs.add(where.getItems().get(key).getValue().toString());
+                    }
 
                     temp = "AND ";
                     i++;
                 }
-                cursor = db.rawQuery(sb.toString(), args);
+                if (listArgs.size() > 0) {
+                    cursor = db.rawQuery(sb.toString(), listArgs.toArray(new String[listArgs.size()]));
+                } else {
+                    cursor = db.rawQuery(sb.toString(), null);
+                }
             } else {
                 cursor = db.rawQuery(sb.toString(), null);
             }
@@ -163,7 +168,6 @@ public class DBHelper extends DB {
             Class<? extends Bean> clazz = bean.getClass();
             Table table = clazz.getAnnotation(Table.class);
 
-
             Where where = new Where();
             ContentValues values = new ContentValues();
             for (Field field : clazz.getDeclaredFields()) {
@@ -172,17 +176,20 @@ public class DBHelper extends DB {
 
                 if (field.isAnnotationPresent(Column.class) == false) continue;
                 Column column = field.getAnnotation(Column.class);
-                Object obj = field.get(bean);
-                if (field.getType().equals(Integer.class)) {
-                    values.put(column.name(), (Integer) obj);
-                } else if (field.getType().equals(String.class)) {
-                    values.put(column.name(), (String) obj);
-                } else if (field.getType().equals(Date.class)){
-                    if (obj != null) values.put(column.name(), new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format((Date) obj));
+
+                if (column.pk() == false) {
+                    Object obj = field.get(bean);
+                    if (field.getType().equals(Integer.class)) {
+                        values.put(column.name(), (Integer) obj);
+                    } else if (field.getType().equals(String.class)) {
+                        values.put(column.name(), (String) obj);
+                    } else if (field.getType().equals(Date.class)) {
+                        if (obj != null)
+                            values.put(column.name(), new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format((Date) obj));
+                    }
                 }
 
-
-                if (field.isAnnotationPresent(PrimaryKey.class) == false) continue;
+                if (column.pk() == false) continue;
 
                 where.add(column.field(), ConditionDB.EQUALS, field.get(bean));
                 field.setAccessible(acessivel);

@@ -2,10 +2,8 @@ package com.example.adapters;
 
 import android.app.Activity;
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
@@ -24,7 +22,6 @@ public class MedicoAdapter extends BaseAdapter {
     public MedicoAdapter(List<MedicoBean> list, Context context){
         this.list = list;
         this.context = context;
-//        this.act = act;
     }
 
     @Override

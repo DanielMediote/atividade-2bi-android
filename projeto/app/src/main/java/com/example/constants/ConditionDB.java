@@ -2,7 +2,8 @@ package com.example.constants;
 
 public enum ConditionDB {
     EQUALS("="),
-    LIKE("LIKE");
+    LIKE("LIKE"),
+    IN("IN");
 
     public String value;
 

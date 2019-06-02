@@ -1,14 +1,12 @@
 package com.example.model.beans;
 
 import com.example.annotations.Column;
-import com.example.annotations.PrimaryKey;
 import com.example.annotations.Table;
 
 @Table(name = "medico")
 public class MedicoBean extends Bean {
 
-    @PrimaryKey
-    @Column(name = "med_id", field = "id")
+    @Column(name = "med_id", field = "id", pk = true)
     private Integer id;
 
     @Column(name = "med_crm", field = "crm")
