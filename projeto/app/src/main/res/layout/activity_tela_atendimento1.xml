@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListaPacientes">
+    tools:context=".TelaAtendimento1">
+
 
     <ListView
         android:id="@+id/listaView_paciente"
@@ -39,7 +40,6 @@
         android:layout_marginBottom="8dp"
         android:clickable="true"
         android:focusable="true"
-        android:onClick="onClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/plus" />

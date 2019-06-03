@@ -150,9 +150,10 @@ public class DB extends SQLiteOpenHelper {
         sb.append(" CREATE TABLE receitaremedio(");
         sb.append("     recrem_id  INTEGER PRIMARY KEY AUTOINCREMENT,   ");
         sb.append("     rec_id INTEGER,                                 ");
-        sb.append("     recrem_observacao TEXT,                         ");
-        sb.append("     FOREIGN KEY (rec_id) REFERENCES receita(rec_id) ");
-        sb.append(" );                                                   ");
+        sb.append("     rem_id INTEGER,                                 ");
+        sb.append("     FOREIGN KEY (rec_id) REFERENCES receita(rec_id),");
+        sb.append("     FOREIGN KEY (rem_id) REFERENCES remedio(rem_id) ");
+        sb.append(" );                                                  ");
 
         return sb.toString();
     }

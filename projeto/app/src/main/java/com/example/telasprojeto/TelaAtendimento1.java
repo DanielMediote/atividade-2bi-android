@@ -1,29 +1,30 @@
 package com.example.telasprojeto;
 
 import android.content.DialogInterface;
-import android.os.Bundle;
+import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SearchView;
 
-import com.example.adapters.MedicoAdapter;
 import com.example.adapters.PacienteAdapter;
 import com.example.constants.ConditionDB;
 import com.example.db.DBHelper;
 import com.example.db.Where;
-import com.example.model.beans.MedicoBean;
 import com.example.model.beans.PacienteBean;
 import com.example.model.beans.PessoaBean;
 import com.example.model.dd.PesTpDD;
 
 import java.util.List;
 
-public class ListaPacientes extends AppCompatActivity {
+public class TelaAtendimento1 extends AppCompatActivity {
 
     FloatingActionButton btnAddPaciente;
     ListView listPacientes;
@@ -34,7 +35,7 @@ public class ListaPacientes extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lista_pacientes);
+        setContentView(R.layout.activity_tela_atendimento1);
 
         btnAddPaciente = super.findViewById(R.id.fbtnAdd_paciente);
         listPacientes = super.findViewById(R.id.listaView_paciente);
@@ -43,6 +44,16 @@ public class ListaPacientes extends AppCompatActivity {
         dbHelp = new DBHelper(this);
 
         atualizaLista();
+
+        listPacientes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent it = new Intent(TelaAtendimento1.super.getApplicationContext(), TelaAtendimento2.class);
+                it.putExtra("pac_id", id);
+
+                startActivityForResult(it, 80);
+            }
+        });
 
 
         search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -140,4 +151,15 @@ public class ListaPacientes extends AppCompatActivity {
         }
     }
 
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        switch (requestCode){
+            case 80:
+                if (resultCode == RESULT_OK){
+                    finish();
+                }
+                break;
+        }
+    }
 }

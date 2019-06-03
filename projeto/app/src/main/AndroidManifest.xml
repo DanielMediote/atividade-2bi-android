@@ -9,7 +9,10 @@
         android:roundIcon="@drawable/icon_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApp">
-        <activity android:name=".TelaAtendimento"></activity>
+        <activity android:name=".TelaAtendimento3"></activity>
+        <activity android:name=".TelaAtendimento2" />
+        <activity android:name=".TelaAtendimento1" />
+        <activity android:name=".TelaAtendimento" />
         <activity android:name=".ListaRemedios" />
         <activity android:name=".ListaPacientes" />
         <activity

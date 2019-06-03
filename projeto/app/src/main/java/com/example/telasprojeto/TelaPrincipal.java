@@ -70,7 +70,7 @@ public class TelaPrincipal extends AppCompatActivity implements View.OnClickList
         }else if(v.getId() == R.id.btnRemedios){
             it = new Intent(this, ListaRemedios.class);
         }else if(v.getId() == R.id.btnAtendimento){
-            it = new Intent(this, TelaAtendimento.class);
+            it = new Intent(this, TelaAtendimento1.class);
         }else{
             it = new Intent(this, ListaPacientes.class);
         }
