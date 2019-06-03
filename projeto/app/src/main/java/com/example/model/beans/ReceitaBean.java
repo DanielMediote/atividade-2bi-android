@@ -3,6 +3,8 @@ package com.example.model.beans;
 import com.example.annotations.Column;
 import com.example.annotations.Table;
 
+import java.util.Date;
+
 @Table(name = "receita")
 public class ReceitaBean extends Bean {
 
@@ -18,17 +20,21 @@ public class ReceitaBean extends Bean {
     @Column(name = "rec_observacao", field = "observacao")
     private String observacao;
 
+    @Column(name = "rec_data", field = "data")
+    private Date data;
+
 
     public ReceitaBean() {
         super();
     }
 
-    public ReceitaBean(Integer id, Integer medico, Integer paciente, String observacao) {
+    public ReceitaBean(Integer id, Integer medico, Integer paciente, String observacao, Date data) {
         super();
         this.id = id;
         this.medico = medico;
         this.paciente = paciente;
         this.observacao = observacao;
+        this.data = data;
     }
 
     public Integer getId() {
@@ -61,5 +67,13 @@ public class ReceitaBean extends Bean {
 
     public void setObservacao(String observacao) {
         this.observacao = observacao;
+    }
+
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
     }
 }

@@ -107,6 +107,7 @@ public class TelaAtendimento3 extends AppCompatActivity {
             recBean.setMedico(medBean.getId());
             recBean.setPaciente(paciente);
             recBean.setObservacao(edtObs.getText().toString());
+            recBean.setData(dbHelp.getDataAtual());
 
             recBean = (ReceitaBean) dbHelp.insert(recBean);
 

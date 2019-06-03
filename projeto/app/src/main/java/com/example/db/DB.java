@@ -138,6 +138,7 @@ public class DB extends SQLiteOpenHelper {
         sb.append("     med_id INTEGER,                                  ");
         sb.append("     pac_id INTEGER,                                  ");
         sb.append("     rec_observacao TEXT,                              ");
+        sb.append("     rec_data TEXT,                                ");
         sb.append("     FOREIGN KEY (med_id) REFERENCES medico(med_id),   ");
         sb.append("     FOREIGN KEY (pac_id) REFERENCES paciente(pac_id) ");
         sb.append(" );                                                    ");

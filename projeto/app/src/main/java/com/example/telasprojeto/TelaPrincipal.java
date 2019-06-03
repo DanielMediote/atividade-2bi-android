@@ -48,10 +48,8 @@ public class TelaPrincipal extends AppCompatActivity implements View.OnClickList
                 btnPacientes.setVisibility(View.VISIBLE);
                 btnAtendimento.setVisibility(View.VISIBLE);
             } else if (pesBean.getPessoaTipo().equals(PesTpDD.PACIENTE)){
-                btnMedico.setVisibility(View.VISIBLE);
-                btnRemedios.setVisibility(View.VISIBLE);
-                btnPacientes.setVisibility(View.VISIBLE);
-                btnAtendimento.setVisibility(View.VISIBLE);
+                Intent it = new Intent(this, Activity_usuario.class);
+                startActivity(it);
             }
 
         } else {
