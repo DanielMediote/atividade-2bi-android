@@ -7,6 +7,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -30,6 +31,9 @@ public class ListaPacientes extends AppCompatActivity {
     SearchView search;
     DBHelper dbHelp;
 
+    PacienteAdapter adapter;
+    PacienteBean pacBean;
+    PessoaBean pesBean;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +47,88 @@ public class ListaPacientes extends AppCompatActivity {
         dbHelp = new DBHelper(this);
 
         atualizaLista();
+
+        listPacientes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                pacBean = (PacienteBean) adapter.getItem(position);
+
+                AlertDialog.Builder alert = new AlertDialog.Builder(ListaPacientes.this);
+                alert.setTitle("Opção");
+                alert.setPositiveButton("Atualizar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        LayoutInflater inflater = ListaPacientes.super.getLayoutInflater();
+
+                        final View view = inflater.inflate(R.layout.dialog_add_paciente, null);
+
+                        AlertDialog.Builder builder = new AlertDialog.Builder(ListaPacientes.this);
+                        builder.setTitle("Atualizar paciente");
+
+                        pesBean = (PessoaBean) dbHelp.selectById(PessoaBean.class, pacBean.getPessoa());
+
+                        EditText edtNome1 = view.findViewById(R.id.pac_nome);
+                        EditText edtCpf1 = view.findViewById(R.id.pac_cpf);
+                        EditText edtSenha1 = view.findViewById(R.id.pac_password);
+
+                        edtNome1.setText(pesBean.getDescricao());
+                        edtCpf1.setText(pesBean.getLogin());
+                        edtSenha1.setText(pesBean.getSenha());
+
+                        builder.setView(view);
+
+                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                EditText edtNome = view.findViewById(R.id.pac_nome);
+                                EditText edtCpf = view.findViewById(R.id.pac_cpf);
+                                EditText edtSenha = view.findViewById(R.id.pac_password);
+
+                                pesBean.setDescricao(edtNome.getText().toString());
+                                pesBean.setLogin(edtCpf.getText().toString());
+                                pesBean.setSenha(edtSenha.getText().toString());
+                                pesBean.setPessoaTipo(PesTpDD.PACIENTE);
+
+                                dbHelp.update(pesBean);
+
+                                pacBean = new PacienteBean();
+                                pacBean.setPessoa(pesBean.getId());
+                                pacBean.setCpf(edtCpf.getText().toString());
+
+                                dbHelp.update(pacBean);
+
+                                atualizaLista();
+                            }
+                        });
+
+                        builder.show();
+                    }
+                });
+                alert.setNegativeButton("Apagar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        AlertDialog.Builder alertApagar = new AlertDialog.Builder(ListaPacientes.this);
+
+                        PessoaBean pesBean = (PessoaBean) dbHelp.selectById(PessoaBean.class, pacBean.getPessoa());
+
+                        alertApagar.setTitle("Apagar");
+                        alertApagar.setMessage("Deseja apagar o paciente " + pesBean.getDescricao());
+
+                        alertApagar.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dbHelp.delete(pacBean);
+                                atualizaLista();
+                            }
+                        });
+                        alertApagar.setNegativeButton("Não", null);
+                        alertApagar.show();
+                    }
+                });
+                alert.setNeutralButton("Cancelar", null);
+                alert.show();
+            }
+        });
 
 
         search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -92,7 +178,7 @@ public class ListaPacientes extends AppCompatActivity {
             pacList = (List<PacienteBean>) dbHelp.select(PacienteBean.class);
         }
 
-        PacienteAdapter adapter = new PacienteAdapter(pacList, this);
+        adapter = new PacienteAdapter(pacList, this);
 
         listPacientes.setAdapter(adapter);
     }

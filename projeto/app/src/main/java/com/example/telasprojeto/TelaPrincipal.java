@@ -3,6 +3,7 @@ package com.example.telasprojeto;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -49,7 +50,7 @@ public class TelaPrincipal extends AppCompatActivity implements View.OnClickList
                 btnAtendimento.setVisibility(View.VISIBLE);
             } else if (pesBean.getPessoaTipo().equals(PesTpDD.PACIENTE)){
                 Intent it = new Intent(this, Activity_usuario.class);
-                startActivity(it);
+                startActivityForResult(it, 70);
             }
 
         } else {
@@ -91,5 +92,18 @@ public class TelaPrincipal extends AppCompatActivity implements View.OnClickList
                 super.finish();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        switch (requestCode){
+            case 70:
+                if (resultCode == RESULT_OK){
+                    setResult(RESULT_OK);
+                    finish();
+                }
+                break;
+        }
     }
 }

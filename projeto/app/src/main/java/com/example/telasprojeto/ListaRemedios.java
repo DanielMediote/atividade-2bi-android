@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -34,8 +35,10 @@ public class ListaRemedios extends AppCompatActivity {
     ListView remListView;
     SearchView search;
 
-
+    RemedioAdapter adapter;
     DBHelper dbHelp;
+
+    RemedioBean remBean;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,94 @@ public class ListaRemedios extends AppCompatActivity {
         btnAddRemedio = super.findViewById(R.id.btnAdd_Remedio);
         remListView = super.findViewById(R.id.listView_remedios);
         search = super.findViewById(R.id.searchView_remedio);
+
+        remListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                AlertDialog.Builder alert = new AlertDialog.Builder(ListaRemedios.this);
+
+                remBean = (RemedioBean) adapter.getItem(position);
+
+                alert.setTitle("Opções");
+
+                alert.setPositiveButton("Atualizar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        LayoutInflater inflater = ListaRemedios.this.getLayoutInflater();
+
+                        final View view = inflater.inflate(R.layout.dialog_add_remedio, null);
+
+                        RemedioTipoBean remtp = new RemedioTipoBean(-1, Sit.ATIVO, "Tipo");
+
+                        List<RemedioTipoBean> remtpList = new ArrayList<>();
+                        remtpList.add(remtp);
+                        remtpList.addAll((List<RemedioTipoBean>) dbHelp.select(RemedioTipoBean.class));
+
+                        RemedioTipoAdapter remedioTipoAdapter = new RemedioTipoAdapter(ListaRemedios.this, R.layout.support_simple_spinner_dropdown_item, remtpList);
+
+                        Spinner spinner = view.findViewById(R.id.spinner);
+                        spinner.setAdapter(remedioTipoAdapter);
+
+                        AlertDialog.Builder builder = new AlertDialog.Builder(ListaRemedios.this);
+                        builder.setTitle("Atualizar remédio");
+
+                        EditText edtDescricao1 = view.findViewById(R.id.rem_descricao);
+                        Spinner spinnerRemtp1 = view.findViewById(R.id.spinner);
+
+                        edtDescricao1.setText(remBean.getDescricao());
+
+                        RemedioTipoBean remtBean = (RemedioTipoBean) dbHelp.selectById(RemedioTipoBean.class, remBean.getRemedioTipo());
+
+                        spinnerRemtp1.setSelection(remedioTipoAdapter.getPosition(remtBean));
+
+                        builder.setView(view);
+
+                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                                Spinner spinnerRemtp = view.findViewById(R.id.spinner);
+
+                                EditText edtDescricao = view.findViewById(R.id.rem_descricao);
+                                Integer remtpId = new Long(spinnerRemtp.getSelectedItemId()).intValue();
+
+//                                remBean = new RemedioBean();
+                                remBean.setDescricao(edtDescricao.getText().toString());
+                                remBean.setRemedioTipo(remtpId);
+
+                                dbHelp.update(remBean);
+
+                                atualizaLista();
+                            }
+                        });
+                        builder.show();
+                    }
+                });
+
+                alert.setNegativeButton("Apagar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        AlertDialog.Builder alertApagar = new AlertDialog.Builder(ListaRemedios.this);
+                        alertApagar.setTitle("Apagar");
+                        alertApagar.setMessage("Deseja apagar o remédio " + remBean.getDescricao());
+
+                        alertApagar.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dbHelp.delete(remBean);
+                            atualizaLista();
+                        }
+                    });
+                    alertApagar.setNegativeButton("Não", null);
+                    alertApagar.show();
+                    }
+                });
+                alert.setNeutralButton("Cancelar", null);
+                alert.show();
+            }
+        });
+
 
         dbHelp = new DBHelper(this);
         atualizaLista();
@@ -81,7 +172,7 @@ public class ListaRemedios extends AppCompatActivity {
             remList = (List<RemedioBean>) dbHelp.select(RemedioBean.class);
         }
 
-        RemedioAdapter adapter = new RemedioAdapter(remList, this);
+        adapter = new RemedioAdapter(remList, this);
 
         remListView.setAdapter(adapter);
     }

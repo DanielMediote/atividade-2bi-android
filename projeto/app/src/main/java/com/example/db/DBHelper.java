@@ -103,7 +103,6 @@ public class DBHelper extends DB {
                             }
                         }
                     }
-//                    convert(clazz, bean);
                     result.add(bean);
                 } while (cursor.moveToNext());
             }
@@ -233,6 +232,39 @@ public class DBHelper extends DB {
 
         db.execSQL(sb.toString());
     }
+
+    public void delete(Bean bean){
+        try {
+            Class<? extends Bean> clazz = bean.getClass();
+            Table table = clazz.getAnnotation(Table.class);
+
+            StringBuilder sb = new StringBuilder();
+            List<String> values = new ArrayList<>();
+            for (Field field : clazz.getDeclaredFields()) {
+                boolean acessivel = field.isAccessible();
+                field.setAccessible(true);
+
+                if (field.isAnnotationPresent(Column.class)) {
+                    Column column = field.getAnnotation(Column.class);
+
+                    if (column.pk()) {
+                        sb.append(column.name());
+                        sb.append(" = ? ");
+
+                        Object obj = field.get(bean);
+
+                        values.add(((Integer) obj).toString());
+                    }
+                }
+                field.setAccessible(acessivel);
+            }
+
+            db.delete(table.name(), sb.toString(), values.toArray(new String[values.size()]));
+        }catch (Exception e){
+            Log.e("DELETE", "erro ao deletar");
+            e.printStackTrace();
+        }
+        }
 
 
     private static void setValue(Object obj, Field field, Cursor cursor, Integer index) throws IllegalAccessException, ParseException {
